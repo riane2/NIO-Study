@@ -31,6 +31,10 @@ public class BlockNioWithServiceNotice {
             buffer.clear();
         }
 
+        /**
+         * 服务端不知道客户端是不是发送完数据，所以服务器处于阻塞状态
+         * 因为客户端必须明确告诉服务端"我发送完数据了"。
+         */
         socketChannel.shutdownOutput();
         /**
          * 接受客户端的回执信息
