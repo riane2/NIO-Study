@@ -112,7 +112,7 @@ public class BufferDemo {
         byte[] bytes = new byte[buffer.limit()];
         //从缓冲区中读取2个元素，放到bytes数组的第二个位置开始的地方
         buffer.get(bytes, 0, 2);
-        System.out.println(new String(bytes));
+        System.out.println(new String(bytes,0,2));
         System.out.println("取出两个元素之后position的位置：" + buffer.position());
         /**
          *标记当前position的位置
