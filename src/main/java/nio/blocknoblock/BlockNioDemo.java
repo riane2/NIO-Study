@@ -26,7 +26,7 @@ import java.nio.file.StandardOpenOption;
  * <p>
  * 3、选择器：是SelectableChannel的多路复用器，用于监控SelectableChannel的IO状况
  */
-@SuppressWarnings("all")
+//@SuppressWarnings("all")
 public class BlockNioDemo {
 
     /**
@@ -57,7 +57,10 @@ public class BlockNioDemo {
     public void server() throws IOException {
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
         //绑定连接
-        serverSocketChannel.bind(new InetSocketAddress(8088));
+        //TODO 这是最新的绑定方式
+        serverSocketChannel.socket().bind(new InetSocketAddress(8088));
+        //TODO 这是1.7之前的绑定方式
+        //serverSocketChannel.bind(new InetSocketAddress(8088));
         //获取客户端的连接的通道
         SocketChannel socketChannel = serverSocketChannel.accept();
 
